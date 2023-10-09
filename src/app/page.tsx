@@ -1,10 +1,11 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import React, { useState, useEffect } from "react";
 
-export default function Home() {
+const HomePage = () => {
+  const [showText, setShowText] = useState(false);
   return (
-    <main className={styles.main}>
-      <h1>Home Page</h1>
+    <main>
+      <h1>Hello NextJS 13!!!</h1>
       <button>Click Me</button>
       <div>
         <label htmlFor="randomText">Enter Random Text: </label>
@@ -15,8 +16,17 @@ export default function Home() {
         <input id="specificText" />
       </div>
       <div>
-        <input id="specificText" placeholder="Search..." />
+        <input placeholder="Search..." />
+      </div>
+      <div>
+        <input value="AUDI Q5" />
+      </div>
+      <div>
+        {showText && <span>This is the text!</span>}
+        <button onClick={() => setShowText(!showText)}>Show Text</button>
       </div>
     </main>
   );
-}
+};
+
+export default HomePage;
